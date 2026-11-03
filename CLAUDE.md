@@ -24,5 +24,5 @@ Discord bot and voice assistant to control local AI agents (`agy` / Antigravity,
 ## Secrets & Deployment
 - Discord configuration lives in `~/.secrets/discord/config.json` (or token in `~/.secrets/discord/token`).
 - Never log or commit Discord tokens, API keys, or private guild IDs.
-- Remote: `https://github.com/slopmaxxer/slopcord.git` (or `slopinger/slopcord.git`).
+- Remote: `https://github.com/slopmaxxer/slopcord.git`.
 - Signed commits (`slop <slopmoder@tutamail.com>`), no Co-Authored-By trailers, no session links.

@@ -45,20 +45,35 @@ async function main() {
 
       if (config.guildId) {
         console.log(`[Slopcord] Registering slash commands to Guild ${config.guildId}...`);
-        await rest.put(Routes.applicationGuildCommands(clientId, config.guildId), { body: commandsJson });
-      } else {
-        console.log('[Slopcord] Registering slash commands globally...');
-        await rest.put(Routes.applicationCommands(clientId), { body: commandsJson });
+        try {
+          await rest.put(Routes.applicationGuildCommands(clientId, config.guildId), { body: commandsJson });
+          console.log('[Slopcord] Guild slash commands registered successfully.');
+          return;
+        } catch (guildErr) {
+          if (guildErr.code === 50001) {
+            console.warn(`[Slopcord] Note: Bot has not joined Guild ${config.guildId} yet. Invite the bot to the server using the OAuth2 link, and commands will register automatically.`);
+          } else {
+            console.error('[Slopcord] Failed to register guild slash commands:', guildErr.message);
+          }
+        }
       }
-      console.log('[Slopcord] Slash commands registered successfully.');
+
+      console.log('[Slopcord] Registering slash commands globally...');
+      await rest.put(Routes.applicationCommands(clientId), { body: commandsJson });
+      console.log('[Slopcord] Global slash commands registered successfully.');
     } catch (err) {
-      console.error('[Slopcord] Failed to register slash commands:', err);
+      console.error('[Slopcord] Failed to register slash commands:', err.message);
     }
   }
 
-  client.once('ready', async () => {
+  client.once('clientReady', async () => {
     console.log(`[Slopcord] Logged in as ${client.user.tag} (ID: ${client.user.id})`);
     client.user.setActivity('slopbox servers | /help', { type: ActivityType.Listening });
+    await registerSlashCommands();
+  });
+
+  client.on('guildCreate', async (guild) => {
+    console.log(`[Slopcord] Joined new guild: ${guild.name} (${guild.id}). Registering slash commands...`);
     await registerSlashCommands();
   });
 
