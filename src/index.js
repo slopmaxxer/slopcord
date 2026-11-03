@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
 const { Client, GatewayIntentBits, REST, Routes, ActivityType, EmbedBuilder, ChannelType } = require('discord.js');
 const os = require('os');
 const { loadConfig } = require('./config');

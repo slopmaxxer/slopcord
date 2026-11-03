@@ -40,6 +40,14 @@ class VoiceManager {
       selfMute: false
     });
 
+    this.connection.on('stateChange', (oldState, newState) => {
+      console.log(`[Voice State] ${oldState.status} -> ${newState.status}`);
+    });
+
+    this.connection.on('error', (err) => {
+      console.error(`[Voice Error]`, err);
+    });
+
     this.currentVoiceChannel = voiceChannel;
     this.associatedTextChannel = textChannel || voiceChannel.guild.systemChannel;
 
