@@ -31,7 +31,7 @@
                 ]);
             };
 
-            npmDepsHash = "sha256-9NMZpNsQ0zQlt1r+V7xiYXwK/8sybDdp0Rdw7hP5CLs=";
+            npmDepsHash = "sha256-H0jpCi6jU9yIFgbdm9cPWzgaVZMZe27QTJa0wYcr2dc=";
 
             nativeBuildInputs = [ pkgs.makeWrapper ];
 

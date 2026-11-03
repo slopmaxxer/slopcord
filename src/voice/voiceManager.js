@@ -44,6 +44,10 @@ class VoiceManager {
       console.log(`[Voice State] ${oldState.status} -> ${newState.status}`);
     });
 
+    this.connection.on('debug', (msg) => {
+      console.log(`[Voice Debug] ${msg}`);
+    });
+
     this.connection.on('error', (err) => {
       console.error(`[Voice Error]`, err);
     });
