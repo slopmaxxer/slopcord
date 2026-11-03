@@ -1,0 +1,9 @@
+node_modules/
+result
+result-*
+.direnv
+config.json
+.env
+*.log
+scratch/
+test.mp3

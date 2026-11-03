@@ -1,0 +1,33 @@
+{
+  "token": "YOUR_DISCORD_BOT_TOKEN",
+  "clientId": "YOUR_DISCORD_APPLICATION_CLIENT_ID",
+  "guildId": "YOUR_OPTIONAL_GUILD_ID",
+  "allowedUsers": [
+    "YOUR_DISCORD_USER_ID"
+  ],
+  "defaultAgent": "agy",
+  "defaultProject": "slop-landing",
+  "ttsVoice": "en-US-ChristopherNeural",
+  "ttsRate": "+0%",
+  "sttEngine": "groq",
+  "groqApiKey": "",
+  "openaiApiKey": "",
+  "triggerWords": [
+    "agent",
+    "slopcord",
+    "antigravity",
+    "claude",
+    "codex",
+    "bot",
+    "assistant",
+    "computer",
+    "hey agent"
+  ],
+  "agentTimeoutSeconds": 600,
+  "customAliases": {
+    "landing": "/home/slop/src/slop-landing",
+    "fedi": "/home/slop/src/trough",
+    "upload": "/home/slop/src/mayfly",
+    "nix": "/home/slop/src/nixfiles"
+  }
+}

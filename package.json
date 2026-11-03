@@ -1,0 +1,34 @@
+{
+  "name": "slopcord",
+  "version": "0.1.0",
+  "description": "Discord bot and voice assistant to control AI agents (Antigravity, Claude Code, Codex) on slopbox",
+  "main": "src/index.js",
+  "bin": {
+    "slopcord": "src/index.js"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "discord",
+    "agent",
+    "antigravity",
+    "claude-code",
+    "codex",
+    "voice",
+    "tts",
+    "stt"
+  ],
+  "author": "slop",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/voice": "^0.18.0",
+    "@snazzah/davey": "^0.2.0",
+    "discord.js": "^14.17.3",
+    "node-edge-tts": "^1.2.12",
+    "opusscript": "^0.0.8",
+    "prism-media": "^1.3.5"
+  }
+}
